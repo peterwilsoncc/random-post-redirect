@@ -2,10 +2,10 @@
 /**
  * Test Plugin Readme and PHP Headers
  *
- * @package WpPluginTemplate
+ * @package RandomPostRedirect
  */
 
-namespace PWCC\WpPluginTemplate\Tests;
+namespace PWCC\RandomPostRedirect\Tests;
 
 use WP_UnitTestCase;
 

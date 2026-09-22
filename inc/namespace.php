@@ -1,11 +1,11 @@
 <?php
 /**
- * WP Plugin Template
+ * Random Post Redirect
  *
- * @package           WpPluginTemplate
+ * @package           RandomPostRedirect
  */
 
-namespace PWCC\WpPluginTemplate;
+namespace PWCC\RandomPostRedirect;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
