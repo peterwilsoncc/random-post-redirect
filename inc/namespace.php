@@ -111,7 +111,7 @@ function random_redirect_headers( $headers ) {
 	$location      = $permalink;
 	$x_redirect_by = 'WordPress';
 	/** This filter is documented in /wp-includes/pluggable.php */
-	$location = apply_filters( 'wp_redirect', $location, $status );
+	$location = apply_filters( 'wp_redirect', $location, $status ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	$location = wp_sanitize_redirect( $location );
 
 	if ( ! $location ) {
@@ -123,7 +123,7 @@ function random_redirect_headers( $headers ) {
 	}
 
 	/** This filter is documented in /wp-includes/pluggable.php */
-	$x_redirect_by = apply_filters( 'x_redirect_by', $x_redirect_by, $status, $location );
+	$x_redirect_by = apply_filters( 'x_redirect_by', $x_redirect_by, $status, $location );  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	$headers       = array_merge( $headers, wp_get_nocache_headers() );
 
 	if ( is_string( $x_redirect_by ) ) {
