@@ -17,6 +17,21 @@ const PLUGIN_VERSION = '1.0.0';
  * Bootstrap the plugin.
  */
 function bootstrap() {
+
+	$enabled = true;
+
+	/**
+	 * Filters whether random content redirects are enabled.
+	 *
+	 * @since 7.2.0
+	 *
+	 * @param bool $enabled Whether `?random` requests redirect to random content. Default true.
+	 */
+	$enabled = apply_filters( 'wp_enable_random_content_redirect', $enabled ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+	if ( ! $enabled ) {
+		return;
+	}
+
 	add_action( 'init', __NAMESPACE__ . '\\rewrite_rules' );
 	// Runs early to allow plugins to filter random requests, won't be needed in Core as the order of operations will handle.
 	add_action( 'parse_request', __NAMESPACE__ . '\\parse_request', 5 );
