@@ -28,3 +28,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once __DIR__ . '/inc/namespace.php';
 
 bootstrap();
+register_activation_hook( __FILE__, __NAMESPACE__ . '\\activate_plugin' );
+register_deactivation_hook( __FILE__, __NAMESPACE__ . '\\deactivate_plugin' );
