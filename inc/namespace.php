@@ -65,7 +65,7 @@ function deactivate_plugin() {
  * @global \WP $wp WordPress request object.
  */
 function rewrite_rules() {
-	// To do: rewrite rules.
+	// @todo: Add Rewrite rules to blog index, post type index, term index.
 
 	global $wp;
 	$wp->add_query_var( 'random' );
@@ -85,6 +85,7 @@ function parse_request( $wp ) {
 		return;
 	}
 
+	// @todo: Decide if this needs to move to `pre_get_posts` for the purpose of the POC.
 	$wp->set_query_var( 'orderby', 'rand' );
 	$wp->set_query_var( 'posts_per_page', '1' );
 	$wp->set_query_var( 'update_post_meta_cache', false );
