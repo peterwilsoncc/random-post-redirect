@@ -18,7 +18,8 @@ const PLUGIN_VERSION = '1.0.0';
  */
 function bootstrap() {
 	add_action( 'init', __NAMESPACE__ . '\\rewrite_rules' );
-	add_action( 'parse_request', __NAMESPACE__ . '\\parse_request' );
+	// Runs early to allow plugins to filter random requests, won't be needed in Core as the order of operations will handle.
+	add_action( 'parse_request', __NAMESPACE__ . '\\parse_request', 5 );
 }
 
 /**
@@ -58,6 +59,8 @@ function rewrite_rules() {
 /**
  * Parse Random requests.
  *
+ * Runs on the `parse_request, 5` hook.
+ *
  * @param \WP $wp WordPress request object.
  */
 function parse_request( $wp ) {
@@ -77,6 +80,8 @@ function parse_request( $wp ) {
 
 /**
  * Process redirect headers.
+ *
+ * Runs on the `wp_headers` hook.
  *
  * @global \WP_Query Main query object for request.
  *
