@@ -18,3 +18,9 @@ Plugin land proof of concept for [WP #64498](https://core.trac.wordpress.org/tic
 ## Known issues
 
 * Currently accepts `?random` on all URLS, including `is_singular()` which redirects to itself
+
+## Install
+
+```
+composer require peterwilsoncc/random-post-redirect
+```
