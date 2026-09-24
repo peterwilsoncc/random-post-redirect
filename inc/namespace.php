@@ -146,7 +146,8 @@ function random_redirect_headers( $headers ) {
 		$headers['X-Redirect-By'] = $x_redirect_by;
 	}
 
-	$headers['Location'] = $location;
+	$headers['Location']     = $location;
+	$headers['X-Robots-Tag'] = 'noindex, follow';
 
 	return $headers;
 }
