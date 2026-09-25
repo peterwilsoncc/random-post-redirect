@@ -113,47 +113,26 @@ function random_redirect_headers( $headers ) {
 		return $headers;
 	}
 
-	$permalink = get_permalink( $wp_query->posts[0] );
-	$location  = $permalink;
-	$location  = wp_sanitize_redirect( $location );
-	$location  = wp_validate_redirect( $location );
-
-	if ( empty( $location ) ) {
+	$post   = $wp_query->posts[0];
+	$permalink = get_permalink( $post );
+	if ( empty( $permalink ) ) {
 		// Allow WordPress to handle the request.
 		return $headers;
 	}
-
-	$status        = 302;
-	$location      = $permalink;
-	$x_redirect_by = 'Random Post Redirect'; // @todo: WordPress for core implementation.
-	/** This filter is documented in /wp-includes/pluggable.php */
-	$location = apply_filters( 'wp_redirect', $location, $status ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-	$location = wp_sanitize_redirect( $location );
-
-	if ( ! $location ) {
-		return $headers;
-	}
-
-	if ( ! $is_IIS && 'cgi-fcgi' !== PHP_SAPI ) {
-		status_header( $status ); // This causes problems on IIS and some FastCGI setups.
-	}
-
-	/** This filter is documented in /wp-includes/pluggable.php */
-	$x_redirect_by = apply_filters( 'x_redirect_by', $x_redirect_by, $status, $location );  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-	$headers       = array_merge( $headers, wp_get_nocache_headers() );
-
-	if ( is_string( $x_redirect_by ) ) {
-		$headers['X-Redirect-By'] = $x_redirect_by;
-	}
-
-	$headers['Location']     = $location;
 	$headers['X-Robots-Tag'] = 'noindex, follow';
 
-	// Exit after sending headers.
+	// Redirect after sending headers.
 	add_action(
 		'send_headers',
-		function () {
-			exit;
+		function () use ( $post ) {
+			if ( wp_safe_redirect( get_permalink( $post ), 302, 'Random Post Redirect' ) ) {
+				$message = sprintf(
+					'Redirecting to <a href="%1$s">%2$s</a>.',
+					esc_url( get_permalink( $post ) ),
+					wp_strip_all_tags( get_the_title( $post ) )
+				);
+				wp_die( wp_kses_post( $message ), 'Redirecting', 302 );
+			}
 		},
 		1 // Do this early to avoid work by other plugins.
 	);
