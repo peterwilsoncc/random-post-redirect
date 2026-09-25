@@ -113,7 +113,7 @@ function random_redirect_headers( $headers ) {
 		return $headers;
 	}
 
-	$post   = $wp_query->posts[0];
+	$post      = $wp_query->posts[0];
 	$permalink = get_permalink( $post );
 	if ( empty( $permalink ) ) {
 		// Allow WordPress to handle the request.
