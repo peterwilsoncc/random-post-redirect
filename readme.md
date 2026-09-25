@@ -5,8 +5,9 @@ Plugin land proof of concept for [WP #64498](https://core.trac.wordpress.org/tic
 ## Implemented
 
 * `?random` Query variable
-* Redirects using the main `WP_Query`
-* Redirects on  the`send_headers` hook to reduce database queries
+* Redirect requests use the main `WP_Query`
+* Redirects added using the `wp_headers` filter (with filters from `wp_safe_redirect()` etc)
+* Exits on the `send_headers` actions to avoid rendering the full page
 
 ## Todo
 
