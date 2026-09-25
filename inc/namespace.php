@@ -125,7 +125,7 @@ function random_redirect_headers( $headers ) {
 
 	$status        = 302;
 	$location      = $permalink;
-	$x_redirect_by = 'WordPress';
+	$x_redirect_by = 'Random Post Redirect'; // @todo: WordPress for core implementation.
 	/** This filter is documented in /wp-includes/pluggable.php */
 	$location = apply_filters( 'wp_redirect', $location, $status ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	$location = wp_sanitize_redirect( $location );
