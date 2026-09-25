@@ -149,5 +149,14 @@ function random_redirect_headers( $headers ) {
 	$headers['Location']     = $location;
 	$headers['X-Robots-Tag'] = 'noindex, follow';
 
+	// Exit after sending headers.
+	add_action(
+		'send_headers',
+		function () {
+			exit;
+		},
+		1 // Do this early to avoid work by other plugins.
+	);
+
 	return $headers;
 }
