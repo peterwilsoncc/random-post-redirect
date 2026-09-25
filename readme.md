@@ -37,4 +37,4 @@ composer require peterwilsoncc/random-post-redirect:dev-main
 * [Random post type post (short note)](https://peterwilson.me/~/?random)
 * [Random post from category (General)](https://peterwilson.cc/category/blog/general/?random)
 * [Random post from tag (WordPress)](https://peterwilson.cc/tag/wordpress/?random)
-* [Random post tagged WordPress in the category General](https://peterwilson.cc/?cat=3&tag=wordpress&random)
+* [Random post tagged WordPress in the category Code](https://peterwilson.cc/?cat=3&tag=wordpress&random)
