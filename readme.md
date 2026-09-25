@@ -32,7 +32,7 @@ composer require peterwilsoncc/random-post-redirect
 composer require peterwilsoncc/random-post-redirect:dev-main
 ```
 
-## Demo (Yolo install)
+## Demo (Yolo install, auto updates from `main` twice weekly, [`5 4 * * 1,4`](https://crontab.guru/#5_4_*_*_1,4))
 
 * [Random post](https://peterwilson.cc/?random)
 * [Random post type post (short note)](https://peterwilson.me/~/?random)
