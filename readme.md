@@ -11,6 +11,8 @@ Plugin land proof of concept for [WP #64498](https://core.trac.wordpress.org/tic
 
 ## Todo
 
+* Decide how to expose this feature to regular users: opt-in, opt-out? how can they discover it?
+* Decide how to expose this feature to developers: can CPTs opt in, or will it initially be limited to built-in types?
 * Decide whether `parse_request` or `pre_get_posts` should be used for setting query variables
 * Proper rewrite rule, either `/random/suffix` or `/prefix/random` -- Jorbin has suggested the former -- for blog, term, post type archives
 * Decide if same is needed for date archives
