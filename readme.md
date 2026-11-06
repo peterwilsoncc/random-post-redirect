@@ -8,10 +8,10 @@ The feature has now landed in WordPress Core so the POC is no longer required. S
 
 * [WP #64498](https://core.trac.wordpress.org/ticket/64498)
 * Make WordPress Core: [Your Content Is Going To Get More Random!](https://make.wordpress.org/core/2026/11/05/your-content-is-going-to-get-more-random/)
-* https://github.com/WordPress/wordpress-develop/commit/757cb9c1c515e822b018d7345bea4e618dd39152
-* https://github.com/WordPress/wordpress-develop/commit/9d949f34e7e7e397394b00d932b996fb5fcc2e43
-* https://github.com/WordPress/wordpress-develop/commit/eed6f206be0b3b17a669bca40cc128e6a547b390
-* https://github.com/WordPress/wordpress-develop/commit/2f8310cf9170dc1766316c62fcc7f01c89709004
+* [WordPress/WordPress-Develop@`757cb9c`](https://github.com/WordPress/wordpress-develop/commit/757cb9c1c515e822b018d7345bea4e618dd39152)
+* [WordPress/WordPress-Develop@`9d949f3`](https://github.com/WordPress/wordpress-develop/commit/9d949f34e7e7e397394b00d932b996fb5fcc2e43)
+* [WordPress/WordPress-Develop@`eed6f20`](https://github.com/WordPress/wordpress-develop/commit/eed6f206be0b3b17a669bca40cc128e6a547b390)
+* [WordPress/WordPress-Develop@`2f8310c`](https://github.com/WordPress/wordpress-develop/commit/2f8310cf9170dc1766316c62fcc7f01c89709004)
 
 ## Implemented
 
